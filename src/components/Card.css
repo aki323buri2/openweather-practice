@@ -1,0 +1,33 @@
+.card {
+  border: 1px solid red;
+  width: 400px;
+  margin-top: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+.temp {
+  font-size: 24px;
+  font-weight: bold;
+}
+.temp_container {
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+}
+.temp_sub {
+  font-size: 18px;
+  font-weight: bold; 
+}
+.temp_text {
+  font-size: 12px; 
+  font-weight: bold; 
+  color: rgb(61, 59, 59)
+}
+.icon {
+  width: 100px;
+  object-fit: contain; 
+}
+.description {
+  text-transform: capitalize;
+  color: rgb(48, 44, 44);
+}

@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Card from "./components/Card"
+import { useWeather } from './weatherHooks';
 
 function App() {
+  const [inputText, setInputText] = useState("")
+  const handleChange = e => {
+    setInputText(e.target.value)
+  }
+  const handleClick = (e) => {
+    e.preventDefault()
+    setSearch(inputText)
+  }
+  
+  const { weather, setSearch } = useWeather()
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Application!!</h1>
+      <div className="search-container">
+        <form onSubmit={handleClick}>
+          <input
+            type="text"
+            className="search-input"
+            onChange={handleChange}
+            value={inputText}
+            placeholder="Country name"
+          />
+          <button className="search-button" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+      <Card weather={weather} />
     </div>
   );
 }
